@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="fr">
+    <head>
+        <meta charset="UTF-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <title>MineSweep</title>
+        <link rel="stylesheet" href="assets/css/style.css" />
+        <script>
+            window.onload = function () {
+                MineSweeper.initialize();
+            };
+        </script>
+    </head>
+    <body>
+        <div class="page">
+            <h1>Démineur</h1>
+            <span class="menuRules" onclick="toggleRules();">Règles</span>
+            <br>
+            <br>
+            <div class="infoGame">
+                <h2 id="gameDifficulty" class="gameDifficulty"></h2>
+                <div class="nbMineTime">
+                    <div class="nbMine"><span id="nbMinesTotal"></span> Mines restantes</div>
+                    <div class="nbTime">Votre temps : <span id="nbTimesTotal">00:00</span></div>
+                </div>
+            </div>
+            <br>
+            
+            <div class="page-game-option">
+                <div class="result">
+                    <div class="game" id="plateau"></div>
+                    <div id="result" class="result-position"></div>
+                </div>
+                <div class="options">
+                    <div class="menus">
+                        <div class="menu" onclick="MineSweeper.startGame('easy');">Facile</div>
+                        <div class="menu" onclick="MineSweeper.startGame('normal');">Normal</div>
+                        <div class="menu" onclick="MineSweeper.startGame('hard');">Difficile</div>
+                        <div class="menu" onclick="MineSweeper.startGame('extreme');">Extrème</div>
+                        <div id="btnPers" class="menu" onclick="togglePers();">Personnalisé</div>
+
+                        <div id="inputPersContent" class="inputPersContent">
+                            <div class="inputColumns">
+                                Colonnes :
+                                <input type="number" name="columns" id="persColumns"/>
+                            </div>
+                            <div class="inputRows">
+                                Rangées :
+                                <input type="number" name="rows" id="persRows"/>
+                            </div>
+                            <div class="inputMines">
+                                Mines :
+                                <input type="number" name="mines" id="persMines" />
+                            </div>
+                            <div class="btn_inputPersoContent" onclick="MineSweeper.personalized(); togglePers();">Valider</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div id="modalRules" class="modalRules">
+                <div class="modalRulesClose" onclick="toggleRules();">X</div>
+                <h2>Règles du démineur</h2>
+                <hr>
+                <div class="infoRules">
+                    <p>
+                        Le but du jeu est de découvrir toutes les cases libres sans faire exploser les mines. &nbsp;<span class="cellExample bombeExample">💣</span>
+                    </p>
+                    <p>
+                        Pour libérer une case, faire un clic gauche. &nbsp;<span class="cellExample"></span> 
+                    </p>
+                    <p>
+                        Si vous tombez sur un chiffre entre &nbsp;<span class="cellExample numberExample">1</span>&nbsp; et &nbsp;<span class="cellExample numberExample">8</span>&nbsp; cela voudra dire qu'il y a entre 1 et 8 bombes autour du chiffre.
+                    </p>
+                    <p>
+                        Pour marquer une mine, faire un clic droit, qui fera apparaître un drapeau. &nbsp;<span class="cellExample">🚩</span>
+                    </p>
+                    <p>
+                        Faire un second clic droit, permettra de faire apparaître un &nbsp;<span class="cellExample">❓</span>&nbsp; pour marquer un emplacement ou vous penser qu'il y a une mine.
+                    </p>
+                </div>
+            </div>
+        </div>
+
+        <script src="assets/js/script.js"></script>
+    </body>
+</html>

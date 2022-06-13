@@ -1,0 +1,326 @@
+/* global */
+
+* {
+    font-family: Arial, sans-serif;
+    font-size: 14px;
+    font-weight: normal;
+    font-style: normal;
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #333;
+    display: flex;
+    flex-direction: column;
+    color: white;
+    margin: 20px;
+}
+
+p {
+    padding: 8px 0;
+}
+
+a {
+    text-decoration: none;
+    color: #fff;
+    transition: color 0.3s;
+}
+
+a:hover {
+    color: #ff3333;
+}
+
+b,
+strong {
+    font-weight: bold;
+}
+
+i,
+em {
+    font-style: italic;
+}
+
+input,
+textarea,
+select {
+    border: none;
+    padding: 0;
+    font-weight: bold;
+    font-size: 12px;
+    border-radius: 4px;
+    background-color: #e9e9e9;
+}
+
+input,
+textarea,
+option {
+    padding: 4px 4px;
+    font-weight: bold;
+    font-size: 12px;
+}
+
+form {
+    margin: 0;
+}
+
+/* titre */
+
+h1 {
+    font-size: 3rem;
+    color: white;
+}
+
+h2 {
+    font-size: 2rem;
+    color: white;
+    padding-bottom: 20px;
+}
+
+hr {
+    border: none;
+    border-top: 1px solid #fff;
+    color: #333;
+    width: 25%;
+    margin: auto;
+}
+
+/* page */
+
+.page {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.page-game-option {
+    display: flex;
+    justify-content: center;    
+    padding: 20px;
+}
+
+/* info game */
+
+.infoGame {
+    text-align: center;
+}
+
+.nbMineTime {
+    display: flex;
+}
+
+.nbMine,
+.nbTime,
+#nbMinesTotal,
+#nbTimesTotal {
+    font-size: 1.5rem;
+}
+
+.nbMine,
+.nbTime {
+    text-align: center;
+    color: white;
+    width: 250px;
+}
+
+#nbMinesTotal {
+    color: #ff3333;
+    font-weight: bold;
+}
+
+#nbTimesTotal {
+    font-weight: bold;
+}
+
+/* menu */
+
+.menus .menu {
+    padding: 10px 0;
+    margin: 8px;
+    background: #4366b4;
+    color: white;
+    cursor: pointer;
+    width: 150px;
+    text-align: center;
+}
+
+.menus .menu:first-child {
+    margin-top: 0;
+}
+
+.menus .inputPersContent {
+    padding: 10px;
+    margin: 8px;
+    margin-top: -8px;
+    background: #4366b4;
+    color: white;
+    cursor: pointer;
+    width: 150px;
+    border-top: 1px solid white;
+}
+
+.menuRules {
+    border-radius: 10px;
+    color: #ccc;
+    cursor: pointer;
+    text-align: center;
+}
+
+.inputMines,
+.inputRows,
+.inputColumns {
+    text-align: center;
+    margin: 4px;
+}
+
+input[type=number] {
+    width: 100%;
+    margin: 2px 0 4px 0;
+}
+
+/* Firefox */
+input[type=number]:focus-visible {
+    outline: none
+}
+
+/* Chrome */
+input::-webkit-inner-spin-button,
+input::-webkit-outer-spin-button { 
+	-webkit-appearance: none;
+}
+
+.btn_inputPersoContent {
+    text-align: center;
+    padding: 10px;
+    background-color: #537bd1;
+}
+
+/* result */
+
+.result {
+    position: relative;
+}
+
+.result-position {
+    width: 100%;
+    height: 100%;  
+    font-size: 5rem;
+    font-weight: 900;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    -webkit-text-stroke: 1px;
+    -webkit-text-stroke-color: white;
+    background-color: #00000050;
+}
+
+.modalRules {
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 900px;
+    height: 450px;
+    border: solid 1px #bbb;
+    background-color: #666;
+    padding: 25px;
+    text-align: center;
+}
+
+.modalRulesClose {
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    cursor: pointer;
+}
+
+.infoRules {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.modalRules p {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cellExample {
+    display: flex;
+    width: 25px;
+    height: 25px;
+    border: solid 1px #bbb;
+    background-color: #888;
+    cursor: default;
+    justify-content: center;
+    align-items: center;
+}
+
+.numberExample {
+    font-weight: bold;
+}
+
+.bombeExample {
+    background-color: #ff0000;
+}
+
+/* mine field */
+
+.field {
+    background: #888888;
+    padding: 4px;
+    border-collapse: separate;
+    border-spacing: 3px;
+}
+
+.field .cell {
+    width: 25px;
+    height: 25px;
+    background-color: #bbb;
+    border: solid 1px #bbb;
+    cursor: pointer;
+    text-align: center;
+}
+
+.field .cell:hover {
+    background: #666;
+}
+
+.field .cell.bomb {
+    background: #ff3333;
+    cursor: default;
+}
+
+.field .cell.bomb:hover {
+    background: #cc3333;
+}
+
+.field .cell.clear {
+    background: none;
+    cursor: default;
+    color: white;
+    font-weight: bold;
+    text-align: center;
+}
+
+.field .cell.clear:hover {
+    background: none;
+}
+
+.field .cell.marked {
+    color: white;
+    text-align: center;
+}
+
+.field .cell.marked:hover {
+    background: #999999;
+}
